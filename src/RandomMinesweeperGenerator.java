@@ -4,14 +4,6 @@ public class RandomMinesweeperGenerator implements MinesweeperGenerator
     private int numRows;
     private int numCols;
 
-    public RandomMinesweeperGenerator()
-    {
-        // Default settings for Windows XP Minesweeper on Beginner mode
-        numMines = 10;
-        numRows = 9;
-        numCols = 9;
-    }
-
     public RandomMinesweeperGenerator(int numRows, int numCols, int numMines)
     {
         this.numMines = numMines;
@@ -24,5 +16,23 @@ public class RandomMinesweeperGenerator implements MinesweeperGenerator
     {
         // Not implemented yet
         throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public int getNumMines()
+    {
+        return numMines;
+    }
+
+    @Override
+    public int getNumRows()
+    {
+        return numRows;
+    }
+
+    @Override
+    public int getNumCols()
+    {
+        return numCols;
     }
 }

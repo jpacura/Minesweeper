@@ -1,6 +1,6 @@
 public enum MinesweeperTile
 {
-    UNOPENED,
+    UNKNOWN,
     EMPTY,
     MARKED,
     MINE
