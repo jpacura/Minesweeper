@@ -1,36 +1,46 @@
 public class Minesweeper
 {
-    private int NUMBER_MINES;
-    private int NUMBER_ROWS;
-    private int NUMBER_COLS;
+    private int numMines;
+    private int numRows;
+    private int numCols;
 
-    public Minesweeper()
+    // Board that cannot be accessed from outside this class
+    // This is how the game remembers where the mines are
+    private MinesweeperTile[][] internalBoard;
+
+    // Board that can be accessed from public methods
+    // This is how the game keeps track of user input
+    private MinesweeperTile[][] externalBoard;
+
+    private MinesweeperGenerator generator;
+
+    public Minesweeper(MinesweeperGenerator generator)
     {
-        // Default settings for Windows XP Minesweeper on Beginner mode
-        NUMBER_MINES = 10;
-        NUMBER_ROWS  = 9;
-        NUMBER_COLS  = 9;
+        this.generator = generator;
+
+        generate();
     }
 
-    public Minesweeper(int rows, int cols, int mines)
+    private void generate()
     {
-        NUMBER_MINES = mines;
-        NUMBER_ROWS  = rows;
-        NUMBER_COLS  = cols;
+        // This doesn't HAVE to be a separate method since it is only called by the constructor,
+        // But I am separating this in case it needs to be changed / abstracted
+
+        internalBoard = generator.generate();
     }
 
-    public int getMines()
+    public int getNumMines()
     {
-        return NUMBER_MINES;
+        return numMines;
     }
 
-    public int getRows()
+    public int getNumRows()
     {
-        return NUMBER_ROWS;
+        return numRows;
     }
 
-    public int getCols()
+    public int getNumCols()
     {
-        return NUMBER_COLS;
+        return numCols;
     }
 }
